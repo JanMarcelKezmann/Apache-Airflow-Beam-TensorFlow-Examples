@@ -15,6 +15,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 # Table of Contents
 
  - [Installation and Setup](#installation-and-setup)
+ - [Run a Pipeline](#run-a-pipeline)
  - [Examples](#examples)
  - [Citing](#citing)
  - [License](#license)
@@ -45,6 +46,48 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 ### Setup Ubuntu20.04 WSL for Windows Users
 
+### Configure Airflow and its Dependencies
+
+
+## Run a Pipeline
+
+**Steps:**
+ 1. Go to the directory where you cloned the repository
+ 2. Copy the file "camvid_seg_pipeline.py" to the dags folder you configured above
+ 3. Copy the folder "camvid airflow project" in to the dags folder you configured above
+ 4. Open a Ubuntu CLI (Command Line Interface) and run the following two commands:<br>
+   4.1 Run:
+   ```
+      airflow initdb
+   ```
+  
+   ```
+      airflow worker
+   ```
+ 5. Open another Ubuntu CLI and run:
+ ```
+    airflow scheduler
+ ```
+ 
+ 6. Open another Ubuntu CLI and run:
+ ```
+    airflow webserver -p 8080
+ ```
+ 7. Go into your browser to: localhost:8080<br>
+   7.1 Click on the Play Button next to your DAG under Links<br>
+   7.2 Click Trigger
+ 
+<p>In Case you do not want to trigger the DAG in the Browser:</p>
+ 
+ 8. Instead of goint onto your browser open another Ubuntu CLI and run:
+ ```
+    airflow trigger_dag camvid_seg_pipeline
+ ```
+  
+ Finished!
+
+<p>The DAG is now running you can now take a closer look if you click on the name of your DAG to see the details.</p>
+ 
 ## Examples
 
 ## Citing
