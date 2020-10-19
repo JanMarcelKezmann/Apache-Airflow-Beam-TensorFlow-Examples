@@ -49,6 +49,17 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 ## Citing
 
+    @misc{Kezmann:2020,
+      Author = {Jan-Marcel Kezmann},
+      Title = {YourCookBook},
+      Year = {2020},
+      Publisher = {GitHub},
+      Journal = {GitHub repository},
+      Howpublished = {\url{https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Exampless}}
+    }
+
 ## License
+
+Project is distributed under <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/master/LICENSE">MIT License</a>.
 
 ## References
