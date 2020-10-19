@@ -55,17 +55,76 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
   &nbsp;&nbsp;1.3.1 Type "Developer" into the Windows search bar and select the option that says "Developer Settings"<br>
   &nbsp;&nbsp;1.3.2 In the page that appears, select the bubble next to the "Developer Model" option.  <br>
   1.4 Enable Windows Subsystem for Linus (WSL):<br>
-  &nbsp;&nbsp;1.4.1 Type "Windows Feature" into the Windows search bar and select the option that says "Turn Windows features on or off"
-  &nbsp;&nbsp;1.4.2 Scroll donw to the point "windows Subsystem for Linux and check the box.
-  &nbsp;&nbsp;1.4.3 Click ok and restart your computer
+  &nbsp;&nbsp;1.4.1 Type "Windows Feature" into the Windows search bar and select the option that says "Turn Windows features on or off"<br>
+  &nbsp;&nbsp;1.4.2 Scroll down to the point "Windows Subsystem for Linux and check the box.<br>
+  &nbsp;&nbsp;1.4.3 Click ok and restart your computer<br>
    
  2. Initialize Ubuntu:<br>
   2.1 Run Ubuntu and wait until the initial installation process finishes<br>
   2.2 Ubuntu will then ask you for a **username** and a **password**, type in and enter your credentials (Be Careful: Remember them or write them somewhere down)
 
-<p>Now when the above steps are down we can install all dependencies that are necessary to run Airfow.</p>
+<p>Now when the above steps are done, we can install all dependencies that are necessary to run Airfow.</p>
 
 ### Configure Airflow and its Dependencies
+
+**Steps:**
+
+ 1. Installing PIP  
+  1.1 Run the following sequence of commands in the Ubuntu CLI  
+  
+        sudo apt-get install software-properties-common  
+        sudo apt-add-repository universe
+        sudo apt-get update
+        sudo apt-get install python3-setuptools
+        sudo apt install python3-pip
+        sudo -H pip install --upgrade pip
+  1.2 Verify the installation:  
+        
+        pip -V
+        
+   
+ 2. Installing Dependencies<br>
+  2.1 Run the following commands<br>
+
+        sudo apt-get install libmysqlclient-dev 
+        sudo apt-get install libssl-dev 
+        sudo apt-get install libkrb5-dev 
+        sudo apt-get install libsasl2-dev 
+
+  2.2 Install PostgreSQL for Airflow (Our robust backend database)<br>
+    
+        sudo apt-get install postgresql postgresql-contrib
+    
+   ..2.2.1 Start the PostgreSQL service with the following command:<br>
+   
+        sudo service postgresql start
+    
+   ..2.2.2 Check the status of the cluster and make sure that it is running by using the following command:<br>
+    
+        pg_lscluster
+    
+   ..2.2.3 From the above command's output extract the "Ver", "Cluster" and insert it in the follwing command (When run the output should something like: *Cluster is already running*:<br>
+    
+        sudo pg_ctlcluster <version> <cluster> start
+    
+   2.3 Now create a Database for Airflow to use, execute:<br>
+    
+        sudo -u postgres psql
+    
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Create a profile and assign the correct privileges:<br>
+    
+        CREATE ROLE ubuntu;
+        CREATE DATABASE airflow;
+        GRANT ALL PRIVILEGES on database airflow to ubuntu;
+        ALTER ROLE ubuntu SUPERUSER;
+        ALTER ROLE ubuntu CREATEDB; 
+        ALTER ROLE ubuntu LOGIN;
+        GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public to ubuntu;
+    
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.2 Setup a password for the ubuntu server (Again remember this or write it down):<br>
+
+        \password ubuntu
+    
 
 
 ## Run a Pipeline
