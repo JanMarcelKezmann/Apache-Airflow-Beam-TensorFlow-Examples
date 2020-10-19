@@ -21,7 +21,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
  - [License](#license)
  - [References](#references)
  
-## Intallation and Setup
+## Installation and Setup
 
 <p>To get the repository running just check the following requirements.</p>
 
@@ -45,6 +45,25 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 
 ### Setup Ubuntu20.04 WSL for Windows Users
+
+**Steps:**
+
+ 1. Installing Ubuntu on Windows<br>
+  1.1 Go to the Microsoft Store on your computer and search for Ubuntu 20.04<br>
+  1.2 Download and Install Ubuntu 20.04<br>
+  1.3 Enable Devloper Mode on Windows:<br>
+  &nbsp;&nbsp;1.3.1 Type "Developer" into the Windows search bar and select the option that says "Developer Settings"<br>
+  &nbsp;&nbsp;1.3.2 In the page that appears, select the bubble next to the "Developer Model" option.  <br>
+  1.4 Enable Windows Subsystem for Linus (WSL):<br>
+  &nbsp;&nbsp;1.4.1 Type "Windows Feature" into the Windows search bar and select the option that says "Turn Windows features on or off"
+  &nbsp;&nbsp;1.4.2 Scroll donw to the point "windows Subsystem for Linux and check the box.
+  &nbsp;&nbsp;1.4.3 Click ok and restart your computer
+   
+ 2. Initialize Ubuntu:<br>
+  2.1 Run Ubuntu and wait until the initial installation process finishes<br>
+  2.2 Ubuntu will then ask you for a **username** and a **password**, type in and enter your credentials (Be Careful: Remember them or write them somewhere down)
+
+<p>Now when the above steps are down we can install all dependencies that are necessary to run Airfow.</p>
 
 ### Configure Airflow and its Dependencies
 
