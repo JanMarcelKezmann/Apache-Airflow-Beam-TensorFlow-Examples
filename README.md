@@ -48,20 +48,33 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 **Steps:**
 
- 1. Installing Ubuntu on Windows<br>
-  1.1 Go to the Microsoft Store on your computer and search for Ubuntu 20.04<br>
-  1.2 Download and Install Ubuntu 20.04<br>
-  1.3 Enable Devloper Mode on Windows:<br>
-  &nbsp;&nbsp;1.3.1 Type "Developer" into the Windows search bar and select the option that says "Developer Settings"<br>
-  &nbsp;&nbsp;1.3.2 In the page that appears, select the bubble next to the "Developer Model" option.  <br>
-  1.4 Enable Windows Subsystem for Linus (WSL):<br>
-  &nbsp;&nbsp;1.4.1 Type "Windows Feature" into the Windows search bar and select the option that says "Turn Windows features on or off"<br>
-  &nbsp;&nbsp;1.4.2 Scroll down to the point "Windows Subsystem for Linux and check the box.<br>
-  &nbsp;&nbsp;1.4.3 Click ok and restart your computer<br>
-   
- 2. Initialize Ubuntu:<br>
-  2.1 Run Ubuntu and wait until the initial installation process finishes<br>
-  2.2 Ubuntu will then ask you for a **username** and a **password**, type in and enter your credentials (Be Careful: Remember them or write them somewhere down)
+<ol>
+ <li>Installing Ubuntu on Windows
+  <ol>
+   <li>Go to the Microsoft Store on your computer and search for Ubuntu 20.04</li>
+   <li>Download and Install Ubuntu 20.04</li>
+   <li>Enable Devloper Mode on Windows:
+    <ol>
+     <li>Type "Developer" into the Windows search bar and select the option that says "Developer Settings"</li>
+     <li>1.3.2 In the page that appears, select the bubble next to the "Developer Model" option.</li>
+    </ol>
+   </li>
+   <li>Enable Windows Subsystem for Linus (WSL):
+    <ol>
+     <li>Type "Windows Feature" into the Windows search bar and select the option that says "Turn Windows features on or off"</li>
+     <li>Scroll down to the point "Windows Subsystem for Linux and check the box.</li>
+     <li>Click ok and restart your computer</li>
+    </ol>
+   </li>
+  </ol>
+ </li>
+ <li>Initialize Ubuntu:
+  <ol>
+   <li>Run Ubuntu and wait until the initial installation process finishes</li>
+   <li>Ubuntu will then ask you for a **username** and a **password**, type in and enter your credentials (Be Careful: Remember them or write them somewhere down)</li>
+  </ol>
+ </li>
+</ol>
 
 <p>Now when the above steps are done, we can install all dependencies that are necessary to run Airfow.</p>
 
@@ -69,8 +82,10 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 **Steps:**
 
- 1. Installing PIP  
-  1.1 Run the following sequence of commands in the Ubuntu CLI  
+<ol>
+ <li>Installing PIP
+  <ol>
+   <li>Run the following sequence of commands in the Ubuntu CLI</li>
   
         sudo apt-get install software-properties-common  
         sudo apt-add-repository universe
@@ -78,40 +93,47 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
         sudo apt-get install python3-setuptools
         sudo apt install python3-pip
         sudo -H pip install --upgrade pip
-  1.2 Verify the installation:  
+     
+  <li>Verify the installation:</li>
         
         pip -V
         
-   
- 2. Installing Dependencies<br>
-  2.1 Run the following commands<br>
+  </ol>
+ </li>
+ <li>Installing Dependencies
+  <ol>
+   <li>Run the following commands</li>
 
         sudo apt-get install libmysqlclient-dev 
         sudo apt-get install libssl-dev 
         sudo apt-get install libkrb5-dev 
         sudo apt-get install libsasl2-dev 
 
-  2.2 Install PostgreSQL for Airflow (Our robust backend database)<br>
+   <li>Install PostgreSQL for Airflow (Our robust backend database)
     
         sudo apt-get install postgresql postgresql-contrib
-    
-   ..2.2.1 Start the PostgreSQL service with the following command:<br>
+        
+   <ol>
+   <li>Start the PostgreSQL service with the following command:</li>
    
         sudo service postgresql start
     
-   ..2.2.2 Check the status of the cluster and make sure that it is running by using the following command:<br>
+   <li>Check the status of the cluster and make sure that it is running by using the following command:</li>
     
         pg_lscluster
     
-   ..2.2.3 From the above command's output extract the "Ver", "Cluster" and insert it in the follwing command (When run the output should something like: *Cluster is already running*:<br>
+   <li>From the above command's output extract the "Ver", "Cluster" and insert it in the follwing command (When run the output should something like: *Cluster is already running*:</li>
     
         sudo pg_ctlcluster <version> <cluster> start
-    
-   2.3 Now create a Database for Airflow to use, execute:<br>
+   </ol>
+   </li>
+  </ol>
+  <ol>
+   <li>Now create a Database for Airflow to use, execute:
     
         sudo -u postgres psql
-    
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Create a profile and assign the correct privileges:<br>
+   <ol> 
+   <li>Create a profile and assign the correct privileges:</li>
     
         CREATE ROLE ubuntu;
         CREATE DATABASE airflow;
@@ -121,46 +143,65 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
         ALTER ROLE ubuntu LOGIN;
         GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public to ubuntu;
     
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.2 Setup a password for the ubuntu server (Again remember this or write it down):<br>
+   <li>Setup a password for the ubuntu server (Again remember this or write it down):</li>
 
         \password ubuntu
-    
-
+   </li>
+   </ol>
+   </li>
+  </ol>
+ </li>
+</ol>
 
 ## Run a Pipeline
 
 **Steps:**
- 1. Go to the directory where you cloned the repository
- 2. Copy the file "camvid_seg_pipeline.py" to the dags folder you configured above
- 3. Copy the folder "camvid airflow project" in to the dags folder you configured above
- 4. Open a Ubuntu CLI (Command Line Interface) and run the following two commands:<br>
-   4.1 Run:
-   ```
-      airflow initdb
-   ```
+
+<ol>
+ <li>Go to the directory where you cloned the repository</li>
+ <li>Copy the file "camvid_seg_pipeline.py" to the dags folder you configured above</li>
+ <li>Copy the folder "camvid airflow project" in to the dags folder you configured above</li>
+ <li>Open a Ubuntu CLI (Command Line Interface) and run the following two commands:
+  <ol>
+   <li>Run:</li>
   
-   ```
-      airflow worker
-   ```
- 5. Open another Ubuntu CLI and run:
- ```
+    airflow initdb
+   
+   <li>Then Run:</li>
+   
+    airflow worker
+   
+  </ol>
+ </li>
+ <li>Open another Ubuntu CLI and run:</li>
+
     airflow scheduler
- ```
  
- 6. Open another Ubuntu CLI and run:
- ```
+ <li>Open another Ubuntu CLI and run:</li>
+ 
     airflow webserver -p 8080
- ```
- 7. Go into your browser to: localhost:8080<br>
-   7.1 Click on the Play Button next to your DAG under Links<br>
-   7.2 Click Trigger
  
-<p>In Case you do not want to trigger the DAG in the Browser:</p>
- 
- 8. Instead of goint onto your browser open another Ubuntu CLI and run:
- ```
-    airflow trigger_dag camvid_seg_pipeline
- ```
+ <li>Running the DAGGo into your browser to: localhost:8080
+  <ol>
+   <li>First Method: Using a Webbrowser
+    <ol>
+     <li>Go into you webbrowser of choice and enter: localhost:8080</li>
+     <li>Click on the Play Button next to your DAG under Links</li>
+     <li>Click Trigger</li>
+    </ol>
+   </li>
+   <li>Second Method: Using the CLI
+    <ol>
+     <li>Open another CLI</li>
+     <li>Run:</li>
+     
+    airflow trigger_dag <your_pipeline_name>
+  
+   </ol>
+   </li>
+  </ol>
+ </li>
+</ol>
   
  Finished!
 
