@@ -127,8 +127,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
         sudo pg_ctlcluster <version> <cluster> start
    </ol>
    </li>
-  </ol>
-  <ol>
+  
    <li>Now create a Database for Airflow to use, execute:
     
         sudo -u postgres psql
@@ -146,10 +145,66 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
    <li>Setup a password for the ubuntu server (Again remember this or write it down):</li>
 
         \password ubuntu
-   </li>
+   
+   <li>Finally confirm the password and type \q to quit.</li>
    </ol>
    </li>
+   <li>Connect to the Airflow database and verify the connection information:
+ 
+        postgres-# \c airflow
+         
+   <ol>
+   <li>Run the following to receive response for valid working connection:</li>
+    
+        \conninfo
+        
+   <li>Hit Ctrl + Z to stop the session and enter the following command to navigate to the config file:</li>
+   
+        cd /etc/postgresql/*/main/
+        ls
+   <li>Open the file pg_hba.conf:</li>
+   
+        sudo nano pg_hba.conf
+        
+   <li>Modify the file: Modify the line underneath #IPv4 local connections under the column ADDRESS to 0.0.0.0/0</li>
+   <li>Press Ctrl + S to save and Ctrl + X to exit</li>
+   <li>Now, open postgresql.conf</li>
+    
+        sudo nano postgresql.conf
+        
+   <li>Modify the file: Under the "CONNECTIONS AND AUTHENTICATION", modify the following: listen_adresses = '*'</li>
+   <li>Press Ctrl + S to save and Ctrl + X to exit</li>
+   </ol>
+   </li>
+   <li>Finally, restart postgresql to save and load the changes:
+   
+        sudo service postgresql restart
+        
+   <ol>
+   <li>Go back to the root directory, by executing the command:</li>
+ 
+        cd ~
+      
+   </ol>
+   </li>
+   </li>
   </ol>
+ </li>
+ <li>Installing Apache Airflow, for a quick start guide look <a href="https://airflow.apache.org/docs/stable/start.html">here</a>.
+  <ol>
+   <li>To install Airflow, run the following command:</li>
+   
+        sudo SLUGIFY_USES_TEXT_UNIDECODE=yes pip install apache-airflow
+        
+   <li>Add the path to PATH within the terminal, change in the following the <username> to your username</li>
+   
+        export PATH=$PATH:/home/<username>/.local/bin
+        
+   <li>Apache Airflow is now installed, close the Ubuntu instance and reopen it again</li>
+  </ol>
+ </li>
+ <li>Apache Airflow Setup
+ 
  </li>
 </ol>
 
