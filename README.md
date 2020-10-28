@@ -187,14 +187,13 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
       
    </ol>
    </li>
-   </li>
   </ol>
  </li>
  <li>Installing Apache Airflow, for a quick start guide look <a href="https://airflow.apache.org/docs/stable/start.html">here</a>.
   <ol>
    <li>To install Airflow, run the following command:</li>
    
-        sudo SLUGIFY_USES_TEXT_UNIDECODE=yes pip install apache-airflow
+        sudo SLUGIFY_USES_TEXT_UNIDECODE=yes pip install apache-airflow[celery]
         
    <li>Add the path to PATH within the terminal, change in the following the <username> to your username</li>
    
@@ -204,9 +203,83 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
   </ol>
  </li>
  <li>Apache Airflow Setup
+  <ol>
+   <li>Initialize the Database</li>
+   
+        airflow initdb
+        
+   <li>When completed, the necessary config files were being created in the airflow directory, now make changes to the airflow.cfg file
  
+        cd airflow
+        ls
+        sudo nano airflow.cfg
+        
+   <ol>
+   <li>Make the following changes to the config file: (You can change the directory of the dags_folder and base_log_folder to any directory you want) (Insert the password you created previously in the <password> section of the sql_alchemy_conn value.)</li>
+
+        dags_folder = /mnt/c/dags
+        base_log_folder = /mnt/c/dags/logs
+        executor = CeleryExecutor
+        load_examples = False
+        expose_config = True
+        sql_alchemy_conn = postgresql+psycopg2://ubuntu:<password>@localhost:5432/airflow
+        broker_url = amqp://guest:guest@localhost:5672//
+        result_backend = amqp://guest:guest@localhost:5672//
+        
+   <li>Enter Ctrl + S to save and Ctrl + X to exit</li> 
+   </ol>
+   </li>
+   <li>Once the above step is finished, initialize airflow again:
+        
+        airflow initdb
+   
+   <ol>
+   <li>Error Handling: If error relating to the psycopg2 package is received, run the following commands:</li>
+        
+        sudo apt-get update -y
+        sudo apt-get install -y libpq-dev
+        pip install psycopg2
+    
+   </ol>
+   </li>
+   <li>Install Rabbitmq</li>
+        
+        sudo apt install rabbitmq-server
+        
+   <ol>
+   <li>Go to the config file of rabbitmq:</li>
+ 
+        sudo nano /etc/rabbitmq/rabbitmq-env.conf
+   
+   <li>Change the node IP adress to: NODE_IP_ADDRESS=0.0.0.0</li>
+   <li>Now start the RabbitMQ Server</li>
+   
+        sudo service rabbitmq-server start
+   </ol>
+   <li>Run Airflow initdb one last time:</li>
+   
+        airflow initdb
+  </ol>
+ </li>
+ <li>Final Steps to launch Webserver, Scheduler and Celery Worker
+  <ol>
+   <li>In the first terminal run:</li>
+    
+        airflow webserver -p 8080
+        
+   <li>Open a new Ubuntu Terminal and run:</li>
+ 
+        airflow scheduler
+        
+        
+   <li>Open another Ubuntu Terminal and run:</li>
+   
+        airflow worker
+  </ol>
  </li>
 </ol>
+
+<p>You are now finished setting up Airflow and its dependencies, now when the Airflow Webserver has startet, go into your browser and run <a href="localhost:8080">**localhost:8080**</a> in a new tab. A local page showing the current DAGs should load. Here all your dags, which are in the above configured *dags_folder* should appear (as far as the code has no bugs in the DAGs Pipeline)
 
 ## Run a Pipeline
 
