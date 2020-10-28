@@ -14,14 +14,24 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
  
 # Table of Contents
 
+ - [Examples](#examples)
  - [Installation and Setup](#installation-and-setup)
    - [Setup Ubuntu WSL for Windows Users](#setup-ubuntu-wsl-for-windows-users)
    - [Configure Airflow and its Dependencies](#configure-airflow-and-its-dependencies)
  - [Run a Pipeline](#run-a-pipeline)
- - [Examples](#examples)
  - [Citing](#citing)
  - [License](#license)
  - [References](#references)
+ 
+## Examples
+ 
+<p>Here all the current example DAGs are listed, this list will be updated over time, while the installation and setup process should stay the same.</p>
+<p>For more details about the example look at <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/">this</a> README.md.</p>
+
+- <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/dags/classification_dag.py">Classification DAG</a>, is an Image Classification example, for classifying 6 different classes. the Utils files can be found <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/classification_pipeline">here</a>.
+
+In Progress:
+ - Semantic Segmentation Pipeline
  
 ## Installation and Setup
 
@@ -285,12 +295,15 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 
 ## Run a Pipeline
 
+<p>This is the example procedure to run one of the DAGs in the repositories dags folder.</p>
+<p>In order to trigger the dag, do not forget to insert the data in the *data/Image_Classification* folder.</p>
+
 **Steps:**
 
 <ol>
  <li>Go to the directory where you cloned the repository</li>
- <li>Copy the file "camvid_seg_pipeline.py" to the dags folder you configured above</li>
- <li>Copy the folder "camvid airflow project" in to the dags folder you configured above</li>
+ <li>Copy the file "classification_dag.py" to the dags folder you configured above</li>
+ <li>Copy the folder "classification_pipeline" in to the dags folder you configured above</li>
  <li>Open a Ubuntu CLI (Command Line Interface) and run the following two commands:
   <ol>
    <li>Run:</li>
@@ -299,7 +312,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
    
    <li>Then Run:</li>
    
-    airflow worker
+    airflow webserver -p 8080
    
   </ol>
  </li>
@@ -309,14 +322,14 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
  
  <li>Open another Ubuntu CLI and run:</li>
  
-    airflow webserver -p 8080
+    airflow worker
  
  <li>Running the DAGGo into your browser to: localhost:8080
   <ol>
    <li>First Method: Using a Webbrowser
     <ol>
      <li>Go into you webbrowser of choice and enter: localhost:8080</li>
-     <li>Click on the Play Button next to your DAG under Links</li>
+     <li>Click on the Play Button next to the DAG under Links</li>
      <li>Click Trigger</li>
     </ol>
    </li>
@@ -325,7 +338,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
      <li>Open another CLI</li>
      <li>Run:</li>
      
-    airflow trigger_dag <your_pipeline_name>
+    airflow trigger_dag classification_dag
   
    </ol>
    </li>
@@ -336,8 +349,6 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
  Finished!
 
 <p>The DAG is now running you can now take a closer look if you click on the name of your DAG to see the details.</p>
- 
-## Examples
 
 ## Citing
 
