@@ -58,6 +58,8 @@ In Progress:
 
 ### Setup Ubuntu WSL for Windows Users
 
+<p>The Setup process for Ubuntu and Airflow below is heavily based on the Medium Article written by Ryan Roline. It's main differences are the Python Version and the installation of apache-airflow including the Celery package. Therefore I recommend to read the full article if some problems with the below mentioned steps occur, but be aware to use the correct Versions and Ubuntu Instance for the Setup. The URL reference can be found at the end of the README.</p>
+
 **Steps:**
 
 <ol>
@@ -366,3 +368,5 @@ In Progress:
 Project is distributed under <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/master/LICENSE">MIT License</a>.
 
 ## References
+
+ - Ryan Roline, Installing Apache Airflow on Windows, Medium.com, <a href="https://medium.com/@ryanroline/installing-apache-airflow-on-windows-10-5247aa1249ef">URL</a>
