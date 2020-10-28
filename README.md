@@ -15,8 +15,8 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 # Table of Contents
 
  - [Installation and Setup](#installation-and-setup)
-   - <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/README.md#setup-ubuntu20.04-wsl-for-windows-users">Setup Ubuntu20.04 WSL for Windows Users</a>
-   - <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/README.md#conifgure-airflow-and-its-dependencies">Configure Airflow and its Dependencies</a>
+   - [Setup Ubuntu WSL for Windows Users](#setup-ubuntu-wsl-for-windows-users)
+   - [Configure Airflow and its Dependencies](#configure-airflow-and-its-dependencies)
  - [Run a Pipeline](#run-a-pipeline)
  - [Examples](#examples)
  - [Citing](#citing)
@@ -46,7 +46,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
     $ git clone https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples.git
 
 
-### Setup Ubuntu20.04 WSL for Windows Users
+### Setup Ubuntu WSL for Windows Users
 
 **Steps:**
 
