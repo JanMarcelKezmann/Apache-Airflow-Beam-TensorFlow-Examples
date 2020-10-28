@@ -15,6 +15,8 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 # Table of Contents
 
  - [Installation and Setup](#installation-and-setup)
+   - <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/README.md#setup-ubuntu20.04-wsl-for-windows-users">Setup Ubuntu20.04 WSL for Windows Users</a>
+   - <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/README.md#conifgure-airflow-and-its-dependencies">Configure Airflow and its Dependencies</a>
  - [Run a Pipeline](#run-a-pipeline)
  - [Examples](#examples)
  - [Citing](#citing)
@@ -279,7 +281,7 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
  </li>
 </ol>
 
-<p>You are now finished setting up Airflow and its dependencies, now when the Airflow Webserver has startet, go into your browser and run <a href="localhost:8080">**localhost:8080**</a> in a new tab. A local page showing the current DAGs should load. Here all your dags, which are in the above configured *dags_folder* should appear (as far as the code has no bugs in the DAGs Pipeline)
+<p>You are now finished setting up Airflow and its dependencies, now when the Airflow Webserver has startet, go into your browser and run <a href="http://localhost:8080"><strong>localhost:8080</strong></a> in a new tab. A local page showing the current DAGs should load. Here all your dags, which are in the above configured "dags_folder" should appear (as far as the code has no bugs in the DAGs Pipeline)
 
 ## Run a Pipeline
 
