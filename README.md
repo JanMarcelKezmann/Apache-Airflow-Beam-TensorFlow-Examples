@@ -55,10 +55,10 @@ In Progress:
 
     $ git clone https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples.git
 
-
 ### Setup Ubuntu WSL for Windows Users
 
-<p>The Setup process for Ubuntu and Airflow below is heavily based on the Medium Article written by Ryan Roline. It's main differences are the Python Version and the installation of apache-airflow including the Celery package. Therefore I recommend to read the full article if some problems with the below mentioned steps occur, but be aware to use the correct Versions and Ubuntu Instance for the Setup. The URL reference can be found at the end of the README.</p>
+<p>Take a look at <a href="">Markdown</a> file, to get a detailed setup tutorial for Ubuntu on Windows and for the correct configuration of Airflow.</p>
+<p>The Setup process for Ubuntu and Airflow is heavily based on the Medium Article written by Ryan Roline. It's main differences are the Python Version and the installation of apache-airflow including the Celery package. Therefore I recommend to read the full article if some problems with the below mentioned steps occur, but be aware to use the correct Versions and Ubuntu Instance for the Setup. The URL reference can be found at the end of the README.</p>
 
 **Steps:**
 
@@ -369,7 +369,7 @@ Project is distributed under <a href="https://github.com/JanMarcelKezmann/Apache
 
 ## References
 
- - Ryan Roline, Installing Apache Airflow on Windows, Medium.com, <a href="https://medium.com/@ryanroline/installing-apache-airflow-on-windows-10-5247aa1249ef">URL</a>
+ - Ryan Roline, Installing Apache Airflow on Windows, Medium.com, <a href="https://medium.com/@ryanroline/installing-apache-airflow-on-windows-10-5247aa1249ef">Installing Apache Airflow on Windows</a>
  - TensorFlow, TensorFlow TFX Guide, Github.com, <a href="https://github.com/tensorflow/tfx/tree/master/docs/guide">TFX Guide</a>
  - TensorFlow, TFX Guide, TensorFlow.org, <a href="https://www.tensorflow.org/tfx/guide/">TFX Guide</a>
  - Hannes Hapke & Catherine Nelson, Building Machine Learning Pipelines, Github.com, <a href="https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines">Building ML Pipelines</a>
