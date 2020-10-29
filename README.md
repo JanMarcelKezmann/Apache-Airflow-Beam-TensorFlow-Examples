@@ -370,3 +370,6 @@ Project is distributed under <a href="https://github.com/JanMarcelKezmann/Apache
 ## References
 
  - Ryan Roline, Installing Apache Airflow on Windows, Medium.com, <a href="https://medium.com/@ryanroline/installing-apache-airflow-on-windows-10-5247aa1249ef">URL</a>
+ - TensorFlow, TensorFlow TFX Guide, Github.com, <a href="https://github.com/tensorflow/tfx/tree/master/docs/guide">TFX Guide</a>
+ - TensorFlow, TFX Guide, TensorFlow.org, <a href="https://www.tensorflow.org/tfx/guide/">TFX Guide</a>
+ - Hannes Hapke & Catherine Nelson, Building Machine Learning Pipelines, Github.com, <a href="https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines>Building ML Pipelines</a>
