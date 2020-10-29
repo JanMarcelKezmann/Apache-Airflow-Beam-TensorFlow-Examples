@@ -64,7 +64,13 @@ In Progress:
 ## Run a Pipeline
 
 <p>This is the example procedure to run one of the DAGs in the repositories dags folder.</p>
-<p>In order to trigger the dag, do not forget to insert the data in the *data/Image_Classification* folder.</p>
+<p>Everything should run, but in order to make it work, either convert the data in the <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/classification_pipeline/data/Image_Classification">Image Classification</a> directory by running the following command:</p>
+
+    cd /mnt/c/dags/classification_pipeline/
+    python3 convert_data_to_tfrecord.py
+    
+<p>this should transform the small sample of the original dataset to a tfrecord file, or simply Add Image data yourself into that directory and convert it to a tfrecord by applying small changes to the "convert_data_to_tfrecord.py" file.</p>
+<p>Once the data is set up, you can continue with the following steps:</p>
 
 **Steps:**
 
@@ -122,11 +128,11 @@ In Progress:
 
     @misc{Kezmann:2020,
       Author = {Jan-Marcel Kezmann},
-      Title = {YourCookBook},
+      Title = {Apache Airflow Beam TensorFlow Examples},
       Year = {2020},
       Publisher = {GitHub},
       Journal = {GitHub repository},
-      Howpublished = {\url{https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Exampless}}
+      Howpublished = {\url{https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples}}
     }
 
 ## License
@@ -139,3 +145,4 @@ Project is distributed under <a href="https://github.com/JanMarcelKezmann/Apache
  - TensorFlow, TensorFlow TFX Guide, Github.com, <a href="https://github.com/tensorflow/tfx/tree/master/docs/guide">TFX Guide</a>
  - TensorFlow, TFX Guide, TensorFlow.org, <a href="https://www.tensorflow.org/tfx/guide/">TFX Guide</a>
  - Hannes Hapke & Catherine Nelson, Building Machine Learning Pipelines, Github.com, <a href="https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines">Building ML Pipelines</a>
+ - Puneet Bansal, Intel Image Classification, kaggle.com, <a href="https://www.kaggle.com/puneet6060/intel-image-classification">Intel Image Classification</a>
