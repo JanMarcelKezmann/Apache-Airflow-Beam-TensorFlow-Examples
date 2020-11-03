@@ -27,9 +27,8 @@ Various examples for TensorFlow Extended using Apache Beam and Airflow
 <p>For more details about the example look at <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/">this</a> README.md.</p>
 
 - <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/dags/classification_dag.py">Classification DAG</a>, is an Image Classification example, for classifying 6 different classes. the Utils files can be found <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/classification_pipeline">here</a>.
+- <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/blob/main/dags/segmentation_dag.py">Segmentation DAG</a>, is an Semantic Segmentation example, for segmenting up to 12 different classes. the Utils files can be found <a href="https://github.com/JanMarcelKezmann/Apache-Airflow-Beam-TensorFlow-Examples/tree/main/dags/segmentation_pipeline">here</a>.
 
-In Progress:
- - Semantic Segmentation Pipeline
  
 ## Installation and Setup
 
